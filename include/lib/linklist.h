@@ -1,12 +1,14 @@
 #ifndef __LINKLIST__H__
 #define __LINKLIST__H__
+#include "linklist.h"
 #include <stdlib.h>
-#include <assert.h>
 
-#define ASSERT(val) assert(val != NULL);
-#define MALLOC(type, val)                     \
+#define MEMBER_CHECK(val, r) \
+    if (val == NULL)         \
+        return r;
+#define MALLOC(type, val, r)                  \
     type *val = (type *)malloc(sizeof(type)); \
-    ASSERT(val)
+    MEMBER_CHECK(val, r)
 
 typedef int data_t;
 typedef struct __Node {
@@ -14,10 +16,9 @@ typedef struct __Node {
 } node;
 
 typedef struct __NodeList {
-    node *val;
     struct __NodeList *prev;
     struct __NodeList *next;
-
+    node val;
 } linknode;
 
 typedef struct __LinkList {
@@ -25,8 +26,10 @@ typedef struct __LinkList {
     linknode *tail;
 } linklist;
 
+linknode *_nullptr;
+
 linklist *linklist_create(void);
-void linklist_pushback(linklist *list, node n);
+int linklist_pushback(linklist *list, node n);
 linklist *linklist_destory(linklist *list);
 
 #endif //!__LINKLIST__H__
