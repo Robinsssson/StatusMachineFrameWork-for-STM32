@@ -1,6 +1,5 @@
 #ifndef __LINKLIST__H__
 #define __LINKLIST__H__
-#include "linklist.h"
 #include <stdlib.h>
 
 #define MEMBER_CHECK(val, r) \
