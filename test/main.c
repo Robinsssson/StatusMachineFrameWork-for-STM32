@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "../include/pch.h"
-#include "linklist.h"
 
 #define TEST(num) node n##num = {num}; 
 #define T 6
