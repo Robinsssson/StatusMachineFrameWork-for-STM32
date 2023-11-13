@@ -23,12 +23,16 @@ typedef struct __NodeList {
 typedef struct __LinkList {
     linknode *head;
     linknode *tail;
+    int len;
 } linklist;
 
 linknode *_nullptr;
 
 linklist *linklist_create(void);
 int linklist_pushback(linklist *list, node n);
+int linklist_pushfront(linklist *list, node n);
+int linklist_insert(linklist *list, node n, int pos);
+int linklist_delete(linklist *list, int pos);
 linklist *linklist_destory(linklist *list);
 
 #endif //!__LINKLIST__H__
